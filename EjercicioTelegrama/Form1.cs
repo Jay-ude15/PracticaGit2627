@@ -33,11 +33,12 @@ namespace WindowsFormsApp1
             if (cbUrgente.Checked)
                 tipoTelegrama = 'u';
             //Obtengo el número de palabras que forma el telegrama 
-			numPalabras = textoTelegrama.Length;
+			char[] chars = { ' ', '.', ',', ';', ':', '?', '\n', '\r' }; // SOLUCIONADO POR
+			numPalabras = textoTelegrama.Split(chars).Count;			 // USUARIO 1
             //Si el telegrama es ordinario
             if (tipoTelegrama == 'o')
                 if (numPalabras <= 10)
-                    coste = 25;
+                    coste = 2.5;	
                 else
                     coste = 0.5 * numPalabras;
             else
